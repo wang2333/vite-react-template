@@ -24,6 +24,10 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
+      UnoCSS(),
+      EslintPlugin(),
+      // Analyze(),
+      nodePolyfills(),
       Checker({ typescript: true }),
       Icons({
         compiler: 'jsx',
@@ -39,7 +43,6 @@ export default defineConfig(({ mode }) => {
         exclude: ['**/[A-Z]*.tsx'],
         importMode: 'sync',
       }),
-      UnoCSS(),
       AutoImport({
         imports: ['react'],
         dts: './src/auto-imports.d.ts',
@@ -49,9 +52,6 @@ export default defineConfig(({ mode }) => {
           }),
         ],
       }),
-      EslintPlugin(),
-      // Analyze(),
-      nodePolyfills(),
     ],
     build: {
       rollupOptions: {

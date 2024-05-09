@@ -12,6 +12,7 @@ function Redirect({ to }: { to: string }) {
   }, [navigate, to])
   return null
 }
+console.log('routes :>> ', routes)
 
 function App() {
   const { toasts } = useToast()
