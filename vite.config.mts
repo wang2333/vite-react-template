@@ -41,7 +41,7 @@ export default defineConfig(({ mode }) => {
       Pages({
         dirs: [{ dir: 'src/pages', baseRoute: env.BASE || '' }],
         exclude: ['**/[A-Z]*.tsx'],
-        importMode: 'sync',
+        importMode: 'async',
       }),
       AutoImport({
         imports: ['react'],
@@ -57,8 +57,8 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
+            // 将 React 相关库打包成单独的 chunk 中
             'react-vendor': ['react', 'react-router-dom', 'react-dom'],
-            'wagmi-vendor': ['wagmi', 'viem'],
           },
         },
       },

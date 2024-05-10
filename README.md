@@ -1,6 +1,6 @@
 # unoi
 
-![v](https://img.shields.io/badge/vite-v5.2.8-brightgreen) ![w](https://img.shields.io/badge/wagmi-v2.5.17-brightgreen)  
+![v](https://img.shields.io/badge/vite-v5.2.8-brightgreen) ![w](https://img.shields.io/badge/wagmi-v2.5.17-brightgreen)
 
 💖 power by vite + react + wagmi + ts
 
@@ -53,4 +53,3 @@ pnpm run dev
 ## Credits
 
 - [Vite](https://vitejs.dev/)
-- [wagmi](https://wagmi.sh/)

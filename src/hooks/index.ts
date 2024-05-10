@@ -1,2 +1,1 @@
-export * from './useContract'
-export * from './useWagmi'
+export * from './useCopy'
