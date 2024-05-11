@@ -1,18 +1,15 @@
-import { useNavigate, useRoutes } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import routes from '~react-pages'
+import Router from '@/router'
 
-function Redirect({ to }: { to: string }) {
-  let navigate = useNavigate()
-  useEffect(() => {
-    navigate(to)
-  }, [navigate, to])
-  return null
-}
-console.log('routes :>> ', routes)
+const queryClient = new QueryClient()
 
 function App() {
-  return <>{useRoutes([...routes, { path: '*', element: <Redirect to="/" /> }])}</>
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router />
+    </QueryClientProvider>
+  )
 }
 
 export default App

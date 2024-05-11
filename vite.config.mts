@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react'
+import * as path from 'path'
 import { resolve } from 'path'
 // import Analyze from 'rollup-plugin-visualizer'
 import UnoCSS from 'unocss/vite'
@@ -10,7 +11,6 @@ import { defineConfig, loadEnv } from 'vite'
 import Checker from 'vite-plugin-checker'
 import EslintPlugin from 'vite-plugin-eslint'
 import nodePolyfills from 'vite-plugin-node-stdlib-browser'
-import Pages from 'vite-plugin-pages'
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -19,7 +19,19 @@ export default defineConfig(({ mode }) => {
     base: env.BASE,
     resolve: {
       alias: {
-        '@/': `${resolve(__dirname, 'src')}/`,
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    server: {
+      open: true,
+      host: true,
+      port: 3001,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
       },
     },
     plugins: [
@@ -38,11 +50,11 @@ export default defineConfig(({ mode }) => {
           ),
         },
       }),
-      Pages({
-        dirs: [{ dir: 'src/pages', baseRoute: env.BASE || '' }],
-        exclude: ['**/[A-Z]*.tsx'],
-        importMode: 'async',
-      }),
+      // Pages({
+      //   dirs: [{ dir: 'src/pages', baseRoute: env.BASE || '' }],
+      //   exclude: ['**/[A-Z]*.tsx'],
+      //   importMode: 'async',
+      // }),
       AutoImport({
         imports: ['react'],
         dts: './src/auto-imports.d.ts',
