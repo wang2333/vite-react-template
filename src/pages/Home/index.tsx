@@ -23,7 +23,12 @@ const Home: React.FC<HomeProps> = (props) => {
         counter: {counter}
         <button>Button</button>
       </Button>
-      <div text="primary">unocss</div>
+      <div text="primary" p="x-5 y-10" m-20>
+        unocss
+        <span p-10 m="20">
+          123
+        </span>
+      </div>
     </>
   );
 };

@@ -9,7 +9,7 @@ import {
   transformerVariantGroup,
   UserConfig,
 } from 'unocss';
-// import { presetAnimations } from 'unocss-preset-animations';
+import { presetAnimations } from 'unocss-preset-animations';
 import { builtinColors, presetShadcn } from 'unocss-preset-shadcn';
 
 const config: UserConfig = {
@@ -17,7 +17,7 @@ const config: UserConfig = {
     presetUno(),
     presetWind(),
     presetIcons(),
-    // presetAnimations(),
+    presetAnimations(),
     presetShadcn(builtinColors.map((c) => ({ color: c }))),
     presetAttributify(),
   ],

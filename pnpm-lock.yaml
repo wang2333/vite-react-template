@@ -100,9 +100,6 @@ devDependencies:
   '@typescript-eslint/parser':
     specifier: ^6.18.0
     version: 6.21.0(eslint@8.57.0)(typescript@5.4.5)
-  '@unocss/preset-attributify':
-    specifier: ^0.60.2
-    version: 0.60.2
   '@unocss/reset':
     specifier: ^0.59.4
     version: 0.59.4
@@ -3783,12 +3780,6 @@ packages:
       '@unocss/core': 0.59.4
     dev: true
 
-  /@unocss/preset-attributify@0.60.2:
-    resolution: {integrity: sha512-PQDObhVtopL/eEceAHX/pBmPQhm50l4yhTu/pMH31hL13DuRYODngWe00jjgmMRTwIAFpMpDVKk2GjxeD05+cQ==}
-    dependencies:
-      '@unocss/core': 0.60.2
-    dev: true
-
   /@unocss/preset-icons@0.59.4:
     resolution: {integrity: sha512-Afjwh5oC4KRE8TNZDUkRK6hvvV1wKLrS1e5trniE0B0AM9HK3PBolQaIU7QmzPv6WQrog+MZgIwafg1eqsPUCA==}
     dependencies:
@@ -3876,7 +3867,7 @@ packages:
     resolution: {integrity: sha512-YDXSUQceqMSVG51F5yTTPSadrV7YrbRX3VnaSE5NopyyYKRWT6/0dl68riTOjtJfVcm55vl7ZhwNFobAdtOfYA==}
     engines: {node: '>=14'}
     dependencies:
-      '@unocss/core': 0.60.0
+      '@unocss/core': 0.60.2
       magic-string: 0.30.10
     dev: true
 
