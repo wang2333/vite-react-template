@@ -1,11 +1,21 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
 
-import App from './App'
+import App from './App';
 
-import './styles/index.css'
-import '@unocss/reset/tailwind.css'
-import 'uno.css'
+import './styles/index.css';
+import '@unocss/reset/tailwind.css';
+import 'uno.css';
 
-console.table(import.meta.env)
+console.table(import.meta.env);
 
-createRoot(document.getElementById('root')!).render(<App />)
+async function enableMocking() {
+  if (import.meta.env.MODE !== 'development') {
+    return;
+  }
+  const { worker } = await import('../mock');
+  worker.start({ onUnhandledRequest: 'bypass' });
+}
+
+enableMocking().then(() => {
+  createRoot(document.getElementById('root')!).render(<App />);
+});

@@ -8,59 +8,30 @@ import {
   transformerDirectives,
   transformerVariantGroup,
   UserConfig,
-} from 'unocss'
-import { presetAnimations } from 'unocss-preset-animations'
-import { builtinColors, presetShadcn } from 'unocss-preset-shadcn'
+} from 'unocss';
+// import { presetAnimations } from 'unocss-preset-animations';
+import { builtinColors, presetShadcn } from 'unocss-preset-shadcn';
 
 const config: UserConfig = {
   presets: [
     presetUno(),
     presetWind(),
     presetIcons(),
-    presetAnimations(),
-    presetAttributify(),
-    // presetShadcn({
-    //   color: {
-    //     base: 'yellow',
-    //     color: {
-    //       name: 'pink',
-    //       light: {
-    //         background: '0 0% 100%',
-    //         foreground: '240 10% 3.9%',
-    //         card: '0 0% 100%',
-    //         'card-foreground': '240 10% 3.9%',
-    //         popover: '0 0% 100%',
-    //         'popover-foreground': '240 10% 3.9%',
-    //         primary: '346.8 77.2% 49.8%',
-    //         'primary-foreground': '355.7 100% 97.3%',
-    //         secondary: '240 4.8% 95.9%',
-    //         'secondary-foreground': '240 5.9% 10%',
-    //         muted: '240 4.8% 95.9%',
-    //         'muted-foreground': '240 3.8% 46.1%',
-    //         accent: '240 4.8% 95.9%',
-    //         'accent-foreground': '240 5.9% 10%',
-    //         destructive: '0 84.2% 60.2%',
-    //         'destructive-foreground': '0 0% 98%',
-    //         border: '240 5.9% 90%',
-    //         input: '240 5.9% 90%',
-    //         ring: '346.8 77.2% 49.8%',
-    //       },
-    //     },
-    //   },
-    // }),
+    // presetAnimations(),
     presetShadcn(builtinColors.map((c) => ({ color: c }))),
+    presetAttributify(),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup(), transformerAttributifyJsx()],
-  content: {
-    pipeline: {
-      include: [
-        // the default
-        /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
-        // include js/ts files
-        'src/**/*.{js,ts}',
-      ],
-    },
-  },
+  // content: {
+  //   pipeline: {
+  //     include: [
+  //       // the default
+  //       /\.(vue|svelte|[jt]sx|mdx?|astro|elm|php|phtml|html)($|\?)/,
+  //       // include js/ts files
+  //       'src/**/*.{js,ts}',
+  //     ],
+  //   },
+  // },
   shortcuts: {
     'wh-full': 'w-full h-full',
     'flex-center': 'flex justify-center items-center',
@@ -102,6 +73,6 @@ const config: UserConfig = {
     colors: {},
   },
   safelist: ['animate-fade-in', '!animate-duration-360'],
-}
+};
 
-export default defineConfig(config)
+export default defineConfig(config);

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 
 interface LayoutProps {}
 
@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
 
       <Outlet />
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

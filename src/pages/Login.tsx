@@ -1,7 +1,7 @@
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = (props) => {
-  return <>Login</>
-}
+  return <>Login</>;
+};
 
-export default Login
+export default Login;

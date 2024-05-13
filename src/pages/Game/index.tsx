@@ -1,7 +1,7 @@
 interface AboutProps {}
 
 const About: React.FC<AboutProps> = (props) => {
-  return <>About</>
-}
+  return <>About</>;
+};
 
-export default About
+export default About;

@@ -5,7 +5,7 @@ export default {
   rules: {
     'body-leading-blank': [2, 'always'], // 确保提交消息正文之前有一行空白行
     'type-empty': [2, 'never'], // 不允许提交消息的 type 类型为空
-    'subject-empty':[0],
+    'subject-empty': [0],
     'subject-case': [0], // subject 大小写不做校验
     // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
     'type-enum': [
@@ -28,4 +28,4 @@ export default {
       ],
     ],
   },
-}
+};

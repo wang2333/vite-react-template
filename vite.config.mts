@@ -1,19 +1,19 @@
-import react from '@vitejs/plugin-react'
-import * as path from 'path'
-import { resolve } from 'path'
+import react from '@vitejs/plugin-react';
+import * as path from 'path';
+import { resolve } from 'path';
 // import Analyze from 'rollup-plugin-visualizer'
-import UnoCSS from 'unocss/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-import IconsResolver from 'unplugin-icons/resolver'
-import Icons from 'unplugin-icons/vite'
-import { defineConfig, loadEnv } from 'vite'
-import Checker from 'vite-plugin-checker'
-import EslintPlugin from 'vite-plugin-eslint'
-import nodePolyfills from 'vite-plugin-node-stdlib-browser'
+import UnoCSS from 'unocss/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import { FileSystemIconLoader } from 'unplugin-icons/loaders';
+import IconsResolver from 'unplugin-icons/resolver';
+import Icons from 'unplugin-icons/vite';
+import { defineConfig, loadEnv } from 'vite';
+import Checker from 'vite-plugin-checker';
+import EslintPlugin from 'vite-plugin-eslint';
+import nodePolyfills from 'vite-plugin-node-stdlib-browser';
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+  const env = loadEnv(mode, process.cwd(), '');
 
   return {
     base: env.BASE,
@@ -26,10 +26,10 @@ export default defineConfig(({ mode }) => {
     server: {
       open: true,
       host: true,
-      port: 3001,
+      port: 4000,
       proxy: {
         '/api': {
-          target: 'http://localhost:3000',
+          target: 'http://localhost:6001',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
@@ -46,8 +46,9 @@ export default defineConfig(({ mode }) => {
         compiler: 'jsx',
         jsx: 'react',
         customCollections: {
-          'fisand-icons': FileSystemIconLoader(`${resolve(__dirname, 'src/assets/icons')}/`, (svg) =>
-            svg.replace(/^<svg /, '<svg fill="currentColor" ')
+          'fisand-icons': FileSystemIconLoader(
+            `${resolve(__dirname, 'src/assets/icons')}/`,
+            (svg) => svg.replace(/^<svg /, '<svg fill="currentColor" '),
           ),
         },
       }),
@@ -75,9 +76,16 @@ export default defineConfig(({ mode }) => {
           },
         },
       },
+      terserOptions: {
+        compress: {
+          // 生产环境移除console
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
     },
     optimizeDeps: {
       include: ['react-dom'],
     },
-  }
-})
+  };
+});

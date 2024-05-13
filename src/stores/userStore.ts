@@ -1,11 +1,11 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface CounterState {
-  accessToken: number
+  accessToken: number;
 }
 
 const useCounterStore = create<CounterState>()((set) => ({
   accessToken: 1,
-}))
+}));
 
-export default useCounterStore
+export default useCounterStore;

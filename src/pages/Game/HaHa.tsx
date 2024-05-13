@@ -1,7 +1,7 @@
 interface AAAProps {}
 
 const AAA: React.FC<AAAProps> = (props) => {
-  return <>AAA</>
-}
+  return <>AAA</>;
+};
 
-export default AAA
+export default AAA;

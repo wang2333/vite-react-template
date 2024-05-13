@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 export const Header = ({ action }: { action?: ReactNode }) => {
   return (
@@ -34,5 +34,5 @@ export const Header = ({ action }: { action?: ReactNode }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface AsideProps {}
 
@@ -10,7 +10,7 @@ const Aside: React.FC<AsideProps> = (props) => {
         Yes. Free to use for personal and commercial projects. No attribution required.
       </CollapsibleContent>
     </Collapsible>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;

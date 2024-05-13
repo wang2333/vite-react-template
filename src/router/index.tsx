@@ -1,18 +1,18 @@
-import type { RouteObject } from 'react-router-dom'
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
-import Layout from '@/layouts'
+import Layout from '@/layouts';
 
-import AuthGuard from './components/AuthGuard'
+import AuthGuard from './components/AuthGuard';
 
 const LoginRoute: RouteObject = {
   path: '/login',
   Component: lazy(() => import('@/pages/Login')),
-}
+};
 const PAGE_NOT_FOUND_ROUTE: RouteObject = {
   path: '*',
   element: <Navigate to="/404" replace />,
-}
+};
 
 export default function Router() {
   const asyncRoutes: RouteObject = {
@@ -37,11 +37,11 @@ export default function Router() {
         Component: lazy(() => import('@/pages/Game')),
       },
     ],
-  }
+  };
 
-  const routes = [LoginRoute, asyncRoutes, PAGE_NOT_FOUND_ROUTE]
+  const routes = [LoginRoute, asyncRoutes, PAGE_NOT_FOUND_ROUTE];
 
-  const router = createBrowserRouter(routes as unknown as RouteObject[])
+  const router = createBrowserRouter(routes as unknown as RouteObject[]);
 
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
