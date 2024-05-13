@@ -1,6 +1,6 @@
-import { useLocalStorageState } from 'ahooks'
+import { useLocalStorage } from 'react-use';
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui/button';
 
 const builtinColors = [
   'zinc',
@@ -15,17 +15,19 @@ const builtinColors = [
   'blue',
   'yellow',
   'violet',
-] as const
-const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const
+] as const;
+const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const;
 
 export function ThemeSwitch() {
-  const [currentColor, setCurrentColor] = useLocalStorageState<(typeof builtinColors)[number]>('currentColor', {
-    defaultValue: 'neutral',
-  })
+  const [currentColor, setCurrentColor] = useLocalStorage<(typeof builtinColors)[number]>(
+    'currentColor',
+    'neutral',
+  );
 
-  const [currentRadius, setCurrentRadius] = useLocalStorageState<(typeof builtinRadiuses)[number]>('currentRadius', {
-    defaultValue: 0,
-  })
+  const [currentRadius, setCurrentRadius] = useLocalStorage<(typeof builtinRadiuses)[number]>(
+    'currentRadius',
+    0.3,
+  );
 
   return (
     <div className="space-y-4">
@@ -35,9 +37,9 @@ export function ThemeSwitch() {
           <Button
             key={color}
             onClick={() => {
-              document.body.classList.remove(`theme-${currentColor}`)
-              document.body.classList.add(`theme-${color}`)
-              setCurrentColor(color)
+              document.body.classList.remove(`theme-${currentColor}`);
+              document.body.classList.add(`theme-${color}`);
+              setCurrentColor(color);
             }}
             variant={color === currentColor ? 'default' : 'secondary'}
           >
@@ -51,8 +53,8 @@ export function ThemeSwitch() {
           <Button
             key={radius}
             onClick={() => {
-              document.body.style.setProperty('--radius', `${radius}rem`)
-              setCurrentRadius(radius)
+              document.body.style.setProperty('--radius', `${radius}rem`);
+              setCurrentRadius(radius);
             }}
             variant={radius === currentRadius ? 'default' : 'secondary'}
           >
@@ -61,5 +63,5 @@ export function ThemeSwitch() {
         ))}
       </div>
     </div>
-  )
+  );
 }
